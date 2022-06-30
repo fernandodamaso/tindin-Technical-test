@@ -1,6 +1,6 @@
 <div class="layout">
   <div class="gamesWrap">
-    <a class="gameItem"
+    <a class="gameItem" routerLink="game/{{game._id}}"
          *ngFor="let game of listaGames">
       <div class="photoWrap"
            *ngFor="let photo of game?.photos | slice:0:1;">

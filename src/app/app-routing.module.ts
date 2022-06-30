@@ -6,6 +6,13 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
+  {
+    path: 'game/:id',
+    loadChildren: () =>
+      import('./game-interna/game-interna.module').then(
+        (m) => m.GameInternaModule
+      ),
+  },
 ];
 
 @NgModule({
