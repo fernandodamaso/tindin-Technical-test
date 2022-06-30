@@ -1,0 +1,62 @@
+@import "variables";
+
+:host {
+  display: block;
+  background-color: $rosa;
+  padding: 20px 0;
+}
+
+.layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .logoWrap {
+    flex-basis: 20%;
+  }
+  .searchWrap {
+    height: 60px;
+    background-color: #fff;
+    border-radius: 60px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-basis: 36%;
+    min-width: 430px;
+    padding-right: 10px;
+    input {
+      height: 60px;
+      flex: 2;
+      border: 0;
+      outline: none;
+      padding-left: 20px;
+    }
+    button {
+      border-radius: 50px;
+      border: 3px solid $rosa;
+      height: 44px;
+      flex: 1;
+      background-color: $bgBody;
+      color: #fff;
+      font-weight: 600;
+      text-transform: uppercase;
+      line-height: 39px;
+      font-size: 14px;
+    }
+  }
+
+  .loginWrap {
+    flex-basis: 5%;
+    .login {
+      background-color: $bgBody;
+      width: 54px;
+      height: 54px;
+      display: block;
+      border-radius: 60px;
+      border: 3px solid #fff;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

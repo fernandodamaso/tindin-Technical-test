@@ -1,0 +1,41 @@
+@import "variables";
+
+:host {
+  display: block;
+  background-color: $bgFooter;
+  padding: 20px 0;
+}
+
+.layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    color: #fff;
+    a {
+      text-decoration-line: underline;
+    }
+  }
+  ul {
+    li {
+      display: inline-block;
+      margin: 0 4px;
+      a {
+        border-radius: 50px;
+        text-decoration: none;
+        color: $rosa;
+        width: 50px;
+        height: 50px;
+        border: 2px solid #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all ease-in-out 0.20s;
+        &:hover {
+          background-color: $rosa;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

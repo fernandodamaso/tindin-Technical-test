@@ -1,0 +1,20 @@
+<div class="layout">
+  <div class="gamesWrap">
+    <a class="gameItem"
+         *ngFor="let game of listaGames">
+      <div class="photoWrap"
+           *ngFor="let photo of game?.photos | slice:0:1;">
+        <img src="{{photo.url}}"
+             alt="{{photo.name}}"
+             title="{{photo.name}}">
+      </div>
+      <div class="semFoto"
+           *ngIf="game.photos.length == 0">Sem foto</div>
+      <div class="textWrap">
+        <p class="title">{{game.title}}</p>
+        <p class="mediumPrice" *ngIf="game.mediumPrice">{{game.mediumPrice | currency}}</p>
+        <p class="rating">{{game.rating | number: '1.0-1'}}/10</p>
+      </div>
+    </a>
+  </div>
+</div>
