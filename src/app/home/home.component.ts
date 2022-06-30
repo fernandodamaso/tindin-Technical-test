@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
   getGamesList() {
     this.ListGamesService.getGamesList().subscribe({
       next: (data) => {
-        // this.gamesResult = data;
         this.listaGames = data.games;
         console.log(this.listaGames)
       },
