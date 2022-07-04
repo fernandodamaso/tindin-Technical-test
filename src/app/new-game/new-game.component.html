@@ -4,75 +4,81 @@
   </div>
   <div class="cadastroWrap">
     <div class="foto">
-      <input type="file" />
-      <button>Add Photo</button>
+      <button mat-raised-button (click)="openDialog()">Abrir modal</button>
     </div>
     <div class="form">
       <form (ngSubmit)="cadastrar()" #cadastrarJogo="ngForm">
         <div class="row">
-          <!-- <input type="text" class="nota" [(ngModel)]="rating"> -->
-          <input type="text" class="nome" name="title" [(ngModel)]="title" />
+          <input
+            type="text"
+            class="nome"
+            name="title"
+            placeholder="Enter game name"
+            [(ngModel)]="title"
+          />
         </div>
         <div class="row">
           <label>Genres:</label>
-          <select [(ngModel)]="genres" name="genre">
-            <option value="">Select Genre</option>
-            <option value="fight">Fight</option>
-            <option value="sports">Sports</option>
-            <option value="survival">Survival</option>
-            <option value="horror">Horror</option>
-            <option value="rpg">RPG</option>
-            <option value="fps">Fps</option>
-            <option value="tps">Tps</option>
-            <option value="platform">Platform</option>
-            <option value="adventure">Adventure</option>
-            <option value="action">Action</option>
-            <option value="minigame">Minigame</option>
-            <option value="racing">Racing</option>
-            <option value="strategy">Strategy</option>
-            <option value="musical">Musical</option>
-            <option value="dance">Dance</option>
-            <option value="simulator">Simulator</option>
-          </select>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Toppings</mat-label>
+            <mat-select [(ngModel)]="genres" name="genre" multiple>
+              <mat-option *ngFor="let genre of listaGenres" [value]="genre">
+                {{ genre }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
-        <!-- <div class="row">
-          <label>Studio:</label>
-          <select></select>
-        </div> -->
-        <!-- <div class="row">
-          <label>Company:</label>
-        </div> -->
         <div class="row">
           <label>Platforms:</label>
-          <input
-            type="text"
-            name="platform"
-            title="platform"
-            [(ngModel)]="platform"
-          />
-          <button (click)="inserirPlatform(platform)">Inserir Tag</button>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Toppings</mat-label>
+            <mat-select [(ngModel)]="platforms" name="platform" multiple>
+              <mat-option
+                *ngFor="let platform of listaPlatforms"
+                [value]="platform"
+              >
+                {{ platform }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
         <div class="row">
           <label>Tags:</label>
-          <input type="text" name="tag" title="tag" [(ngModel)]="tag" />
-          <button (click)="inserirTag(tag)">Inserir Tag</button>
+          <!-- <input type="text" name="tag" title="tag" [(ngModel)]="tag" />
+          <button (click)="inserirTag(tag)">Inserir Tag</button> -->
+
+          <mat-form-field class="example-chip-list" appearance="fill">
+            <mat-chip-list #chipList aria-label="Fruit selection">
+              <mat-chip *ngFor="let fruit of tags" (removed)="removeTag(fruit)">
+                {{ fruit }}
+                <button matChipRemove>
+                  <!-- <mat-icon>cancel</mat-icon> -->
+                  -
+                </button>
+              </mat-chip>
+              <input
+                placeholder="New fruit..."
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="addTag($event)"
+              />
+            </mat-chip-list>
+          </mat-form-field>
         </div>
         <div class="row">
           <label>Medium Price:</label>
-          <input [(ngModel)]="mediumPrice" name="price" type="text" />
+          <input [(ngModel)]="mediumPrice" name="price" title="price" type="text" />
         </div>
         <div class="row">
           <label>Release Year:</label>
-          <input [(ngModel)]="releaseYear" name="releaseYear" type="text" />
+          <input [(ngModel)]="releaseYear" name="releaseYear" title="releaseYear" type="text" />
         </div>
         <div class="row">
           <label>Description:</label>
-          <textarea
-            [(ngModel)]="description"
-            name="description"
-            cols="30"
-            rows="10"
-          ></textarea>
+          <textarea [(ngModel)]="description" name="description" title="description"></textarea>
         </div>
         <div class="row">
           <button

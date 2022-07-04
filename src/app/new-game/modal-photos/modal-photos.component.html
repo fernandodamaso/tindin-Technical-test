@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Adicionar Foto</h1>
+<div mat-dialog-content>
+  <p>Name</p>
+  <input matInput [(ngModel)]="data.name" title="name" name="name" />
+  <p>URL</p>
+  <input matInput [(ngModel)]="data.url" title="url" name="url" />
+  <p>Tipo de Mídia</p>
+  <label><input [(ngModel)]="data.type" value="foto" type="radio" name="tipoMidia" id="foto" title="foto" />Foto</label>
+  <label><input [(ngModel)]="data.type" value="video" type="radio" name="tipoMidia" id="video" title="video" />Vídeo</label>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>
