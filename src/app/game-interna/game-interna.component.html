@@ -18,11 +18,7 @@
           </span>
       </p>
       <p>Total votes:{{gameResult?.totalVotes}}</p>
-      <p>Platforms:
-        <span *ngFor="let platform of gameResult?.platforms">
-          {{platform}}
-        </span>
-      </p>
+
       <p>Tags:
         <span *ngFor="let tag of gameResult?.tags">
           {{tag}}
@@ -39,7 +35,7 @@
     {{gameResult?.launchDate | date}}
   </p>
 </div>
-<button class="submit">VOTE NOW</button>
+<button class="submit" (click)="voteGame(5)">VOTE NOW</button>
   </div>
   <div class="descriptionWrap">
     <h2>Description</h2>

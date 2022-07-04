@@ -8,7 +8,20 @@
     <input type="search" />
     <button>Search</button>
   </form>
-  <div class="loginWrap">
-    <a href="#" class="login">L</a>
+
+  <div *ngIf="user$ | async as user">
+    <div *ngIf="user.user_id; else login">
+      <i class="fa fa-user-circle mr-1"> </i>
+      <a class="mr-1">{{ user.user_id }}</a>
+      <a (click)="logout()">Logout</a>
+    </div>
   </div>
+
+  <ng-template #login>
+    <div class="loginWrap">
+      <a routerLink="login" class="login">L</a>
+    </div>
+  </ng-template>
+
+
 </div>
