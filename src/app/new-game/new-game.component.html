@@ -1,0 +1,90 @@
+<div class="layout">
+  <div class="siteMap">
+    <p><a href="">Home</a> Name of the game here</p>
+  </div>
+  <div class="cadastroWrap">
+    <div class="foto">
+      <input type="file" />
+      <button>Add Photo</button>
+    </div>
+    <div class="form">
+      <form (ngSubmit)="cadastrar()" #cadastrarJogo="ngForm">
+        <div class="row">
+          <!-- <input type="text" class="nota" [(ngModel)]="rating"> -->
+          <input type="text" class="nome" name="title" [(ngModel)]="title" />
+        </div>
+        <div class="row">
+          <label>Genres:</label>
+          <select [(ngModel)]="genres" name="genre">
+            <option value="">Select Genre</option>
+            <option value="fight">Fight</option>
+            <option value="sports">Sports</option>
+            <option value="survival">Survival</option>
+            <option value="horror">Horror</option>
+            <option value="rpg">RPG</option>
+            <option value="fps">Fps</option>
+            <option value="tps">Tps</option>
+            <option value="platform">Platform</option>
+            <option value="adventure">Adventure</option>
+            <option value="action">Action</option>
+            <option value="minigame">Minigame</option>
+            <option value="racing">Racing</option>
+            <option value="strategy">Strategy</option>
+            <option value="musical">Musical</option>
+            <option value="dance">Dance</option>
+            <option value="simulator">Simulator</option>
+          </select>
+        </div>
+        <!-- <div class="row">
+          <label>Studio:</label>
+          <select></select>
+        </div> -->
+        <!-- <div class="row">
+          <label>Company:</label>
+        </div> -->
+        <div class="row">
+          <label>Platforms:</label>
+          <input
+            type="text"
+            name="platform"
+            title="platform"
+            [(ngModel)]="platform"
+          />
+          <button (click)="inserirPlatform(platform)">Inserir Tag</button>
+        </div>
+        <div class="row">
+          <label>Tags:</label>
+          <input type="text" name="tag" title="tag" [(ngModel)]="tag" />
+          <button (click)="inserirTag(tag)">Inserir Tag</button>
+        </div>
+        <div class="row">
+          <label>Medium Price:</label>
+          <input [(ngModel)]="mediumPrice" name="price" type="text" />
+        </div>
+        <div class="row">
+          <label>Release Year:</label>
+          <input [(ngModel)]="releaseYear" name="releaseYear" type="text" />
+        </div>
+        <div class="row">
+          <label>Description:</label>
+          <textarea
+            [(ngModel)]="description"
+            name="description"
+            cols="30"
+            rows="10"
+          ></textarea>
+        </div>
+        <div class="row">
+          <button
+            type="submit"
+            class="submit"
+            (click)="cadastrar()"
+            [disabled]="cadastrarJogo.invalid"
+          >
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

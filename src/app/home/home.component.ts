@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from '../autenticacao/usuario/usuario.service';
 import { Game } from '../_models/game.model';
 import { ListGamesService } from '../_services/list-games.service';
 
@@ -9,7 +10,9 @@ import { ListGamesService } from '../_services/list-games.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private ListGamesService: ListGamesService) {}
+  constructor(private ListGamesService: ListGamesService, private usuarioService: UsuarioService) {}
+
+  user$ = this.usuarioService.retornaUsuario();
 
   listaGames: Game[] = [];
 

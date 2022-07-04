@@ -1,4 +1,16 @@
-<div class="layout">
+<div class="layout"  *ngIf="user$ | async as user">
+  <div class="newGame" *ngIf="user.user_id">
+    <h2 class="titulo">
+      Games <span>Games manager Portal</span>
+    </h2>
+
+    <div class="addGameWrap">
+      <form action="">
+        <input type="search" name="" id="" placeholder="Sarch from...">
+        <a  routerLink="new-game" class="button">New game</a>
+      </form>
+    </div>
+  </div>
   <div class="gamesWrap">
     <a class="gameItem" routerLink="game/{{game._id}}"
          *ngFor="let game of listaGames">
