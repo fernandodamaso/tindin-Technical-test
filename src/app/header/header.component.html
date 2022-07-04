@@ -1,27 +1,17 @@
-<div class="layout">
+<div class="layout" *ngIf="user$ | async as user">
   <div class="logoWrap">
     <a routerLink="" class="logo">
       <img src="../../assets/img/header-logo.png" alt="Tindin" />
     </a>
   </div>
-  <form action="" class="searchWrap">
+
+  <form action="" class="searchWrap" *ngIf="!user.user_id">
     <input type="search" />
     <button>Search</button>
   </form>
 
-  <div *ngIf="user$ | async as user">
-    <div *ngIf="user.user_id; else login">
-      <i class="fa fa-user-circle mr-1"> </i>
-      <a class="mr-1">{{ user.user_id }}</a>
-      <a (click)="logout()">Logout</a>
-    </div>
+  <div class="loginWrap" >
+    <a routerLink="login" class="login" *ngIf="!user.user_id">Login</a>
+    <a class="login" (click)="logout()" *ngIf="user.user_id">Logout</a>
   </div>
-
-  <ng-template #login>
-    <div class="loginWrap">
-      <a routerLink="login" class="login">L</a>
-    </div>
-  </ng-template>
-
-
 </div>
