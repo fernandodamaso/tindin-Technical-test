@@ -1,0 +1,7 @@
+<!-- <div class="galeriaWrap">
+  <lightgallery [settings]="settings" [onInit]="onInit"> </lightgallery>
+</div> -->
+
+<div class="photo" *ngFor="let photo of resultPhotos">
+  <img src="{{ photo.url }}" alt="" />
+</div>
