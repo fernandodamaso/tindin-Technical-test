@@ -11,7 +11,7 @@ import { VoteGameService } from "../_services/vote-game.service";
   styleUrls: ["./game-interna.component.scss"],
 })
 export class GameInternaComponent implements OnInit {
-  @Output() gameResultData: EventEmitter<Photo[]> = new EventEmitter();
+  @Output() gameResultData: EventEmitter<any[]> = new EventEmitter();
 
   constructor(
     private activatedRoute: ActivatedRoute,
