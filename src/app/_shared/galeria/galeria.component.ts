@@ -12,7 +12,7 @@ import { galeriaModel } from "src/app/_models/galeria.model";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GaleriaComponent implements OnInit {
-  @Input() inputText!: string;
+  @Input() galeriaData!: string;
 
   items: galeriaModel[] = [];
 
@@ -34,9 +34,9 @@ export class GaleriaComponent implements OnInit {
   ngOnInit(): void {}
 
   ngOnChanges(): void {
-    if (this.inputText) {
+    if (this.galeriaData) {
       let galeriaObj = new galeriaModel();
-      galeriaObj.src = this.inputText;
+      galeriaObj.src = this.galeriaData;
 
       this.items.push({
         src: galeriaObj.src,

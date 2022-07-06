@@ -14,7 +14,7 @@ import { galeriaModel } from "../_models/galeria.model";
 export class NewGameComponent implements OnInit {
   @Output() enviaTitleOutput: EventEmitter<string> = new EventEmitter<string>();
 
-  inputText: string = "";
+  galeriaData: string = "";
 
   title: string = "";
   listaGenres = [
@@ -76,7 +76,7 @@ export class NewGameComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.enviaTitleOutput.emit(this.inputText);
+    this.enviaTitleOutput.emit(this.galeriaData);
   }
 
   inserirPlatform(platform: string) {
@@ -129,13 +129,13 @@ export class NewGameComponent implements OnInit {
       if (result.type == "foto") {
         this.listPhotos.push(result);
         this.galeriaInput = result;
-        this.inputText = result.url;
-        this.enviaTitleOutput.emit(this.inputText);
+        this.galeriaData = result.url;
+        this.enviaTitleOutput.emit(this.galeriaData);
       } else {
         this.listVideos.push(result);
         this.galeriaInput = result;
-        this.inputText = result.url;
-        this.enviaTitleOutput.emit(this.inputText);
+        this.galeriaData = result.url;
+        this.enviaTitleOutput.emit(this.galeriaData);
       }
     });
   }
