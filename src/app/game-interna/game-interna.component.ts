@@ -28,6 +28,7 @@ export class GameInternaComponent implements OnInit {
     this.GetGameService.getGame(this.gameId).subscribe({
       next: (data) => {
         this.gameResult = data.game;
+        console.log(this.gameResult);
         console.log(this.gameResult.photos);
       },
       error: (e) => console.error(e),

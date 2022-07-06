@@ -1,31 +1,24 @@
-<div class="layout"  *ngIf="user$ | async as user">
+<div class="layout" *ngIf="user$ | async as user">
   <div class="newGame" *ngIf="user.user_id">
-    <h2 class="titulo">
-      Games <span>Games manager Portal</span>
-    </h2>
+    <h2 class="titulo">Games <span>Games manager Portal</span></h2>
 
     <div class="addGameWrap">
       <form action="">
-        <input type="search" name="" id="" placeholder="Sarch from...">
-        <a  routerLink="new-game" class="button">New game</a>
+        <input type="search" name="" id="" placeholder="Sarch from..." />
+        <a routerLink="new-game" class="button">New game</a>
       </form>
     </div>
   </div>
   <div class="gamesWrap">
-    <a class="gameItem" routerLink="game/{{game._id}}"
-         *ngFor="let game of listaGames">
-      <div class="photoWrap"
-           *ngFor="let photo of game?.photos | slice:0:1;">
-        <img src="{{photo.url}}"
-             alt="{{photo.name}}"
-             title="{{photo.name}}">
+    <a class="gameItem" routerLink="game/{{ game._id }}" *ngFor="let game of listaGames">
+      <div class="photoWrap" *ngFor="let photo of game?.photos | slice: 0:1">
+        <img src="{{ photo.url }}" alt="{{ photo.name }}" title="{{ photo.name }}" />
       </div>
-      <div class="semFoto"
-           *ngIf="game.photos.length == 0">Sem foto</div>
+      <div class="semFoto" *ngIf="game.photos.length == 0">Sem foto cadastrada</div>
       <div class="textWrap">
-        <p class="title">{{game.title}}</p>
-        <p class="mediumPrice" *ngIf="game.mediumPrice">{{game.mediumPrice | currency}}</p>
-        <p class="rating">{{game.rating | number: '1.0-1'}}/10</p>
+        <p class="title">{{ game.title }}</p>
+        <p class="mediumPrice" *ngIf="game.mediumPrice">{{ game.mediumPrice | currency }}</p>
+        <p class="rating">{{ game.rating | number: "1.0-1" }}/10</p>
       </div>
     </a>
   </div>

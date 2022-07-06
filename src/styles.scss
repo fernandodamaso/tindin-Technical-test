@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -20,27 +19,29 @@ $tindim-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$tindim-theme: mat.define-light-theme((
-  color: (
-    primary: $tindim-primary,
-    accent: $tindim-accent,
-    warn: $tindim-warn,
+$tindim-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $tindim-primary,
+      accent: $tindim-accent,
+      warn: $tindim-warn,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($tindim-theme);
 
-@import 'variables';
-@import 'normalize';
-@import '~lightgallery/scss/lightgallery';
-@import '~lightgallery/scss/lg-thumbnail';
-@import '~lightgallery/scss/lg-zoom';
+@import "variables";
+@import "normalize";
+@import "~lightgallery/scss/lightgallery";
+@import "~lightgallery/scss/lg-thumbnail";
+@import "~lightgallery/scss/lg-zoom";
 
-
-body, html {
+body,
+html {
   font-family: $font;
   background-color: $bgBody;
   font-weight: 400;
@@ -59,7 +60,7 @@ img {
 a {
   color: #fff;
   text-decoration: none;
-  transition: color ease-in-out 0.20s;
+  transition: color ease-in-out 0.2s;
   &:hover {
     color: $rosa;
   }
@@ -73,8 +74,46 @@ a {
 
 button {
   cursor: pointer;
+  background-color: $rosa;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 25px;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Montserrat, "Helvetica Neue", sans-serif;
+}
 
+.lg-backdrop,
+.lg-outer .lg-thumb-outer {
+  background: #1b1919;
+}
+
+.lg-outer .lg-content {
+  z-index: 99999;
+}
+
+.lg-toolbar {
+  display: none;
+}
+
+.lg-next,
+.lg-prev {
+  background: #fff;
+  color: $rosa;
+  position: absolute;
+  bottom: -19%;
+  top: initial;
+  &:hover {
+    background-color: $rosa;
+    color: #fff;
+  }
+}

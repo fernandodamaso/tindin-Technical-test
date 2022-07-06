@@ -4,42 +4,49 @@
   </div>
 
   <div class="detailsWrap">
-    <h2 class="title">{{ gameResult?.title }}</h2>
+    <h2 class="title">
+      <span class="rating">{{ gameResult?.rating }}/10</span> {{ gameResult?.title }}
+    </h2>
     <p class="resume">
       {{ gameResult?.resume }}
     </p>
+    <hr />
     <div class="boxDetails">
       <p>
-        Genres:
-        <span *ngFor="let genre of gameResult?.genres">
-          {{ genre }}
-        </span>
+        <strong>Genres:</strong>
+        <span *ngFor="let genre of gameResult?.genres"> {{ genre }}, </span>
       </p>
-      <p>Total votes:{{ gameResult?.totalVotes }}</p>
+      <p><strong>Total votes:</strong>{{ gameResult?.totalVotes }}</p>
 
       <p>
-        Tags:
-        <span *ngFor="let tag of gameResult?.tags">
-          {{ tag }}
-        </span>
+        <strong>Platforms:</strong>
+        <span *ngFor="let platform of gameResult?.platforms"> {{ platform }}, </span>
+      </p>
+
+      <p>
+        <strong>Tags:</strong>
+        <span *ngFor="let tag of gameResult?.tags"> {{ tag }}, </span>
       </p>
     </div>
     <div class="priceWrap">
+      <hr />
       <p class="price">
-        Medium Price
-        {{ gameResult?.mediumPrice | currency }}
+        <strong>Medium Price: </strong>
+        <span class="rosa">
+          {{ gameResult?.mediumPrice | currency }}
+        </span>
       </p>
-      <p class="releaseDate">
-        Release Date:
-        {{ gameResult?.launchDate | date }}
-      </p>
+
+      <p class="releaseDate"><strong>Release Date: </strong>{{ gameResult?.releaseYear }}</p>
+
+      <button class="submit" (click)="voteGame(5)">VOTE NOW</button>
+      <hr />
     </div>
-    <button class="submit" (click)="voteGame(5)">VOTE NOW</button>
   </div>
   <div class="descriptionWrap">
     <h2>Description</h2>
     <div class="box">
-      {{ gameResult?.description }}
+      <p>{{ gameResult?.description }}</p>
     </div>
   </div>
 </div>
