@@ -1,30 +1,73 @@
-import { Component, OnInit } from '@angular/core';
-import { Photo, registerGame, Video } from '../_models/registerGame';
-import { MatChipInputEvent } from '@angular/material/chips';
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { ModalPhotosComponent } from './modal-photos/modal-photos.component';
+import { Component, OnInit, ViewEncapsulation, ElementRef, EventEmitter, Output } from "@angular/core";
+import { Photo, registerGame, Video } from "../_models/registerGame";
+import { MatChipInputEvent } from "@angular/material/chips";
+import { COMMA, ENTER } from "@angular/cdk/keycodes";
+import { MatDialog } from "@angular/material/dialog";
+import { ModalPhotosComponent } from "./modal-photos/modal-photos.component";
+import { galeriaModel } from "../_models/galeria.model";
 
 @Component({
-  selector: 'app-new-game',
-  templateUrl: './new-game.component.html',
-  styleUrls: ['./new-game.component.scss'],
+  selector: "app-new-game",
+  templateUrl: "./new-game.component.html",
+  styleUrls: ["./new-game.component.scss"],
 })
-
 export class NewGameComponent implements OnInit {
-  title: string = '';
-  listaGenres = ["Fight", "Sports", "Survival", "Horror", "RPG", "Fps", "Tps", "Platform", "Adventure", "Action", "Minigame", "Racing", "Strategy", "Musical", "Dance", "Simulator"];
-  listaPlatforms = ["PS", "PS2", "PS3", "PS4", "PS5", "PSP", "XBOX", "XBOX 360", "XBOX ONE", "XBOX SERIES S", "XBOX SERIES X", "SUPER NINTENDO", "NINTENDO 64", "NINTENDO SWITCH", "NINTENDO WII", "NINTENDO DS", "NINTENDO 3DS", "MEGA DRIVE", "PC", "MOBILE"];
-  tag: string = '';
-  platform: string = '';
-  tags : string[] = [];
-  platforms : string[] = [];
-  genres : string[] = [];
+  @Output() enviaTitleOutput: EventEmitter<string> = new EventEmitter<string>();
+
+  inputText: string = "";
+
+  title: string = "";
+  listaGenres = [
+    "Fight",
+    "Sports",
+    "Survival",
+    "Horror",
+    "Rpg",
+    "Fps",
+    "Tps",
+    "Platform",
+    "Adventure",
+    "Action",
+    "Minigame",
+    "Racing",
+    "Strategy",
+    "Musical",
+    "Dance",
+    "Simulator",
+  ];
+  listaPlatforms = [
+    "Ps",
+    "Ps2",
+    "Ps3",
+    "Ps4",
+    "Ps5",
+    "Psp",
+    "Xbox",
+    "Xbox 360",
+    "Xbox One",
+    "Xbox Series S",
+    "Xbox Series X",
+    "Super Nintendo",
+    "Nintendo 64",
+    "Nintendo Switch",
+    "Nintendo Wii",
+    "Nintendo Ds",
+    "Nintendo 3ds",
+    "Mega Drive",
+    "Pc",
+    "Mobile",
+  ];
+  tag: string = "";
+  platform: string = "";
+  tags: string[] = [];
+  platforms: string[] = [];
+  genres: string[] = [];
   listPhotos: Photo[] = [];
   listVideos: Video[] = [];
   mediumPrice!: number;
   releaseYear!: number;
-  description: string = '';
+  description: string = "";
+  galeriaInput!: galeriaModel;
 
   // addOnBlur eseparatorKeysCodes referentes ao chips das tags
   addOnBlur = true;
@@ -32,30 +75,34 @@ export class NewGameComponent implements OnInit {
 
   constructor(public dialog: MatDialog) {}
 
-  ngOnInit(): void {}
-
-  inserirTag(tag: string) {
-    if (this.tag.length > 0) {
-      this.tags.push(tag);
-    }
-    this.tag = '';
+  ngOnInit(): void {
+    this.enviaTitleOutput.emit(this.inputText);
   }
 
   inserirPlatform(platform: string) {
     if (this.platform.length > 0) {
       this.platforms.push(platform);
     }
-    this.platform = '';
+    this.platform = "";
   }
 
+  // Referente as tags
   addTag(event: MatChipInputEvent): void {
-    const value = (event.value || '').trim();
+    const value = (event.value || "").trim();
 
     if (value) {
       this.tags.push(value);
     }
 
     event.chipInput!.clear();
+  }
+
+  // Referente as tags
+  inserirTag(tag: string) {
+    if (this.tag.length > 0) {
+      this.tags.push(tag);
+    }
+    this.tag = "";
   }
 
   removeTag(tag: string): void {
@@ -67,27 +114,29 @@ export class NewGameComponent implements OnInit {
   }
 
   openDialog(): void {
-
     const dialogRef = this.dialog.open(ModalPhotosComponent, {
-      width: '250px',
-      data: {name: "", url: ""},
+      width: "250px",
+      data: { name: "", url: "" },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      let name = result.name;
-      let url = result.name;
+    dialogRef.afterClosed().subscribe((result) => {
+      let url = result.url;
       let type = result.type;
 
-      name = result.name;
       url = result.url;
       type = result.type;
 
-      if(result.type == 'foto') {
+      if (result.type == "foto") {
         this.listPhotos.push(result);
+        this.galeriaInput = result;
+        this.inputText = result.url;
+        this.enviaTitleOutput.emit(this.inputText);
       } else {
         this.listVideos.push(result);
+        this.galeriaInput = result;
+        this.inputText = result.url;
+        this.enviaTitleOutput.emit(this.inputText);
       }
-
     });
   }
 
@@ -104,5 +153,4 @@ export class NewGameComponent implements OnInit {
     avaliacao.videos = this.listVideos;
     console.log(avaliacao);
   }
-
 }

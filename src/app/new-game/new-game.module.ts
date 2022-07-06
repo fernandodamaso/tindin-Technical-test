@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { MatChipsModule } from '@angular/material/chips';
 import { ModalPhotosComponent } from './modal-photos/modal-photos.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { GaleriaModule } from '../_shared/galeria/galeria.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSelectModule,
     MatChipsModule,
     NewGameRoutingModule,
-    MatDialogModule
+    MatDialogModule,
+    GaleriaModule
   ]
 })
 export class NewGameModule { }

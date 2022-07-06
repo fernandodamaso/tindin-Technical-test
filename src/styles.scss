@@ -35,6 +35,10 @@ $tindim-theme: mat.define-light-theme((
 
 @import 'variables';
 @import 'normalize';
+@import '~lightgallery/scss/lightgallery';
+@import '~lightgallery/scss/lg-thumbnail';
+@import '~lightgallery/scss/lg-zoom';
+
 
 body, html {
   font-family: $font;
@@ -73,3 +77,4 @@ button {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

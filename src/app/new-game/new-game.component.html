@@ -3,19 +3,16 @@
     <p><a href="">Home</a> Name of the game here</p>
   </div>
   <div class="cadastroWrap">
+    <app-galeria [inputText]="inputText"></app-galeria>
+
     <div class="foto">
       <button mat-raised-button (click)="openDialog()">Abrir modal</button>
     </div>
+
     <div class="form">
       <form (ngSubmit)="cadastrar()" #cadastrarJogo="ngForm">
         <div class="row">
-          <input
-            type="text"
-            class="nome"
-            name="title"
-            placeholder="Enter game name"
-            [(ngModel)]="title"
-          />
+          <input type="text" class="nome" name="title" placeholder="Enter game name" [(ngModel)]="title" />
         </div>
         <div class="row">
           <label>Genres:</label>
@@ -35,10 +32,7 @@
           <mat-form-field appearance="fill">
             <mat-label>Toppings</mat-label>
             <mat-select [(ngModel)]="platforms" name="platform" multiple>
-              <mat-option
-                *ngFor="let platform of listaPlatforms"
-                [value]="platform"
-              >
+              <mat-option *ngFor="let platform of listaPlatforms" [value]="platform">
                 {{ platform }}
               </mat-option>
             </mat-select>
@@ -81,14 +75,7 @@
           <textarea [(ngModel)]="description" name="description" title="description"></textarea>
         </div>
         <div class="row">
-          <button
-            type="submit"
-            class="submit"
-            (click)="cadastrar()"
-            [disabled]="cadastrarJogo.invalid"
-          >
-            Login
-          </button>
+          <button type="submit" class="submit" (click)="cadastrar()" [disabled]="cadastrarJogo.invalid">Login</button>
         </div>
       </form>
     </div>
