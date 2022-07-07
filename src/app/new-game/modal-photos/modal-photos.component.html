@@ -1,4 +1,4 @@
-<div class="modalWrap">
+<form #modalForm="ngForm" class="modalWrap">
   <h1 mat-dialog-title>Adicionar Foto ou Vídeo</h1>
   <div mat-dialog-content>
     <div class="row">
@@ -10,7 +10,7 @@
     <div class="row">
       <p>Tipo de Mídia</p>
       <label>
-        <input [(ngModel)]="data.type" value="foto" type="radio" name="tipoMidia" id="foto" title="foto" />
+        <input [(ngModel)]="data.type" value="foto" type="radio" name="tipoMidia" id="foto" title="foto" required />
         Foto
       </label>
       <label
@@ -21,11 +21,12 @@
           name="tipoMidia"
           id="video"
           title="video"
+          required
         />Vídeo</label
       >
     </div>
   </div>
   <div mat-dialog-actions>
-    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+    <button [disabled]="modalForm.invalid" mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
   </div>
-</div>
+</form>

@@ -35,6 +35,8 @@
       display: flex;
       align-items: center;
       margin-bottom: 7px;
+      cursor: pointer;
+
       input {
         margin-right: 5px;
       }
@@ -47,6 +49,11 @@
     border: 0;
     height: 45px;
     transition: all ease-in-out 0.15s;
+    &:disabled {
+      background-color: #000 !important;
+      opacity: 0.5 !important;
+      cursor: default !important;
+    }
     &:hover {
       background-color: $rosa;
       color: #fff;

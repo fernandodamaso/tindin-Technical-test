@@ -5,6 +5,7 @@ import { COMMA, ENTER } from "@angular/cdk/keycodes";
 import { MatDialog } from "@angular/material/dialog";
 import { ModalPhotosComponent } from "./modal-photos/modal-photos.component";
 import { galeriaModel } from "../_models/galeria.model";
+import { insertGameService } from "../_services/insert-game.service";
 
 @Component({
   selector: "app-new-game",
@@ -73,7 +74,7 @@ export class NewGameComponent implements OnInit {
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private insertGameService: insertGameService) {}
 
   ngOnInit(): void {
     this.enviaTitleOutput.emit(this.galeriaData);
@@ -152,5 +153,9 @@ export class NewGameComponent implements OnInit {
     avaliacao.photos = this.listPhotos;
     avaliacao.videos = this.listVideos;
     console.log(avaliacao);
+
+    this.insertGameService.insertGame(avaliacao).subscribe((data: any) => {
+      console.log(data);
+    });
   }
 }
