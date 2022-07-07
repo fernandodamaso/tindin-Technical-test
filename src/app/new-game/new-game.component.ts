@@ -115,7 +115,7 @@ export class NewGameComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalPhotosComponent, {
-      width: "250px",
+      width: "500px",
       data: { name: "", url: "" },
     });
 

@@ -110,10 +110,115 @@ body {
   background: #fff;
   color: $rosa;
   position: absolute;
-  bottom: -19%;
+  bottom: -18%;
   top: initial;
   &:hover {
     background-color: $rosa;
     color: #fff;
   }
+}
+
+.lg-next {
+  right: 0;
+}
+.lg-prev {
+  left: 0;
+}
+
+.lg-thumb-outer {
+  width: 90% !important;
+  margin: auto !important;
+  float: none !important;
+}
+
+.lg-outer .lg-item.lg-complete.lg-zoomable .lg-image,
+.lg-outer .lg-item.lg-complete.lg-zoomable .lg-dummy-img {
+  width: 100%;
+}
+
+mat-form-field {
+  flex-basis: 80%;
+  background-color: #3f403f;
+  border: 2px solid #fc4444;
+  color: #fff;
+  .mat-form-field-flex {
+    padding-top: 0 !important;
+  }
+  .mat-form-field-infix {
+    padding: 0 !important;
+    border: 0;
+    margin: 0 !important;
+  }
+  .mat-chip-list-wrapper .mat-standard-chip {
+    background-color: #565656;
+    color: #fff;
+  }
+  .mat-chip-list-wrapper {
+    display: flex;
+  }
+  .mat-form-field-wrapper {
+    padding: 0;
+  }
+  .mat-form-field-underline {
+    opacity: 0;
+  }
+  input.mat-chip-input {
+    border: 0 !important;
+    padding-left: 0;
+    background-color: #3d3d3d !important;
+  }
+}
+
+.mat-form-field-type-mat-select {
+  height: 45px;
+  display: flex !important;
+  align-items: center;
+  .mat-form-field-wrapper {
+    flex: 1;
+  }
+  .mat-select {
+    height: 45px;
+  }
+}
+
+.mat-form-field-type-mat-select .mat-form-field-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(30%);
+}
+
+.mat-form-field-label-wrapper {
+}
+
+.mat-form-field-label {
+  .ng-star-inserted {
+    color: #fff;
+  }
+}
+
+.mat-form-field-type-mat-select .mat-select {
+  display: flex;
+  align-items: center;
+}
+
+.mat-select-value {
+  color: #fff;
+}
+
+.mat-form-field-appearance-fill.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  opacity: 0;
+}
+
+.mat-select-panel {
+  background: #3f403f !important;
+  mat-pseudo-checkbox {
+    border-color: #fff;
+  }
+  .mat-option-text {
+    color: #fff;
+  }
+}
+
+.mat-primary .mat-pseudo-checkbox-checked {
+  background-color: $rosa;
 }

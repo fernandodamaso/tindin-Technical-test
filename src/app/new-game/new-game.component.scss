@@ -1,3 +1,94 @@
-label, p {
+@import "variables";
+
+label,
+p {
   color: #fff;
+}
+
+.layout {
+  margin: 75px auto;
+  .cadastroWrap {
+    display: flex;
+    align-items: flex-start;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+    .fotoWrap {
+      flex-basis: 30%;
+
+      app-galeria {
+      }
+
+      .foto {
+        button {
+        }
+      }
+    }
+
+    .form {
+      flex: 1;
+      flex-basis: 50%;
+      padding-left: 40px;
+      color: #888888;
+      form {
+        .row {
+          color: #fff;
+          margin-bottom: 10px;
+          display: flex;
+          align-items: center;
+
+          label {
+            flex-basis: 20%;
+            text-align: right;
+            padding-right: 20px;
+            box-sizing: border-box;
+          }
+
+          input {
+            background-color: #3f403f;
+            height: 45px;
+            border: 2px solid $rosa;
+            color: #fff;
+            padding-left: 10px;
+            &.text {
+              flex-basis: 80%;
+            }
+            &::placeholder {
+              opacity: 1;
+              color: #fff;
+            }
+          }
+          textarea {
+            background-color: #3f403f;
+            height: 150px;
+            border: 2px solid $rosa;
+            color: #fff;
+            padding-left: 10px;
+            flex-basis: 80%;
+            &::placeholder {
+              color: #fff;
+              opacity: 1;
+              padding-top: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.botoes {
+  justify-content: flex-end;
+  margin-top: 50px;
+  .submit {
+    padding: 10px 65px;
+    border: 0;
+    height: 45px;
+  }
+  .cinza {
+    background-color: #3f403f;
+    padding: 10px 65px;
+    border: 0;
+    height: 45px;
+    margin-right: 10px;
+  }
 }

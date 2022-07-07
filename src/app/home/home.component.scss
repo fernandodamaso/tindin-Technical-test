@@ -79,3 +79,56 @@
     }
   }
 }
+
+.newGame {
+  display: flex;
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+  .titulo {
+    flex: 1;
+    color: #fff;
+    font-size: 26px;
+    span {
+      display: block;
+      font-weight: 400;
+      font-size: 18px;
+      margin-top: 7px;
+    }
+  }
+
+  .addGameWrap {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 30px;
+    form {
+      input {
+        border: 2px solid $rosa;
+        background-color: #1b1919;
+        height: 45px;
+        color: #fff;
+        margin-right: 15px;
+        padding-left: 10px;
+        min-width: 300px;
+        &::placeholder {
+          color: #fff;
+          opacity: 1;
+        }
+      }
+
+      .button {
+        background-color: $rosa;
+        flex: 1;
+        padding: 13px 30px;
+        transition: all ease-in-out 0.15s;
+        &:hover {
+          background-color: darken($rosa, 10%);
+          color: #fff;
+        }
+      }
+    }
+  }
+}
