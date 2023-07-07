@@ -1,27 +1,52 @@
-# Tindin - Teste Tenico Front-end
+# Tindim - Teste Tecnico Front-end
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+System designed with the purpose of a Technical test developed in angular. 
 
-## Development server
+## Table of Contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Features](#features)
+- [License](#license)
+- [Contact](#contact)
 
-## Code scaffolding
+## Introduction
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+System coded with the purpose of a Technical test developed in angular. 
+It access an api to list games, and once the the user is logged in, he can add new games to the list.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Installation
 
-## Running unit tests
+1. Clone the repository to your local machine using the following command:
+ ```shell
+git clone https://github.com/username/repository.git
+```
+   
+3. Install any required dependencies with the command
+```shell
+npm install
+```
+5. run the project with the command
+```shell
+ng serve
+```
+  
+## Features
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Enumerate the key features and functionalities of your admin panel. Highlight what makes your project stand out. Use bullet points or a table to improve readability. For example:
 
-## Running end-to-end tests
+- Games List: User can see the games in the library, and add new games to the library.
+- Login: The user can only add new games once logged in
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## License
 
-## Further help
+This project is licensed under the Creative Commons Attribution-NonCommercial (CC BY-NC) License. This means that you are free to use, modify, and distribute the project for non-commercial purposes only. Any commercial use of the project or its derivatives is prohibited without prior written permission.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Contact
+
+Email: fernando.yarrum@gmail.com
+linkedin: https://www.linkedin.com/in/fernandodamaso/
+instagram: https://www.instagram.com/fernandodamaso/
+Whatsapp: (+55) 27 995066670
+
