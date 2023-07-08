@@ -1,4 +1,4 @@
-# Tindim - Teste Tecnico Front-end
+# Tindim - Front-end Technical test
 
 System designed with the purpose of a Technical test developed in angular. 
 
