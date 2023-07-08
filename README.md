@@ -15,12 +15,11 @@ System designed with the purpose of a Technical test developed in angular.
 System coded with the purpose of a Technical test developed in angular. 
 It access an api to list games, and once the the user is logged in, he can add new games to the list.
 
-
 ## Installation
 
 1. Clone the repository to your local machine using the following command:
  ```shell
-git clone https://github.com/username/repository.git
+git clone https://github.com/fernandodamaso/tindin-Technical-test.git
 ```
    
 3. Install any required dependencies with the command
@@ -33,8 +32,6 @@ ng serve
 ```
   
 ## Features
-
-Enumerate the key features and functionalities of your admin panel. Highlight what makes your project stand out. Use bullet points or a table to improve readability. For example:
 
 - Games List: User can see the games in the library, and add new games to the library.
 - Login: The user can only add new games once logged in
